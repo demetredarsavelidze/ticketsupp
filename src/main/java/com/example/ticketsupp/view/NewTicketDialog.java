@@ -1,7 +1,7 @@
 package com.example.ticketsupp.view;
 
-import com.example.ticketsupp.model.Priority;
 import com.example.ticketsupp.model.Ticket;
+import com.example.ticketsupp.model.TicketPriority;
 import com.example.ticketsupp.model.TicketStatus;
 import com.example.ticketsupp.model.TicketStore;
 import javafx.geometry.Insets;
@@ -22,7 +22,7 @@ public class NewTicketDialog {
     private TextField requesterEmailField;
     private TextField titleField;
     private TextArea descriptionArea;
-    private ComboBox<Priority> priorityCombo;
+    private ComboBox<TicketPriority> priorityCombo;
     private ComboBox<String> assigneeCombo;
     private boolean saved = false;
 
@@ -84,8 +84,8 @@ public class NewTicketDialog {
         priorityLabel.setStyle("-fx-font-weight: bold;");
         gridPane.add(priorityLabel, 0, 4);
         priorityCombo = new ComboBox<>();
-        priorityCombo.getItems().addAll(Priority.values());
-        priorityCombo.setValue(Priority.MEDIUM);
+        priorityCombo.getItems().addAll(TicketPriority.values());
+        priorityCombo.setValue(TicketPriority.MEDIUM);
         gridPane.add(priorityCombo, 1, 4);
         GridPane.setHgrow(priorityCombo, Priority.ALWAYS);
 

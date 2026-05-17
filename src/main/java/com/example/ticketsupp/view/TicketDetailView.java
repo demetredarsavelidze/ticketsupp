@@ -1,7 +1,7 @@
 package com.example.ticketsupp.view;
 
-import com.example.ticketsupp.model.Priority;
 import com.example.ticketsupp.model.Ticket;
+import com.example.ticketsupp.model.TicketPriority;
 import com.example.ticketsupp.model.TicketStatus;
 import com.example.ticketsupp.model.TicketStore;
 import javafx.geometry.Insets;
@@ -23,7 +23,7 @@ public class TicketDetailView {
     private TextField requesterNameField;
     private TextField requesterEmailField;
     private ComboBox<String> assigneeCombo;
-    private ComboBox<Priority> priorityCombo;
+    private ComboBox<TicketPriority> priorityCombo;
     private ComboBox<TicketStatus> statusCombo;
     private Label createdAtLabel;
     private Label updatedAtLabel;
@@ -105,7 +105,7 @@ public class TicketDetailView {
         // Priority
         HBox priorityBox = createLabeledField("Priority:");
         priorityCombo = new ComboBox<>();
-        priorityCombo.getItems().addAll(Priority.values());
+        priorityCombo.getItems().addAll(TicketPriority.values());
         priorityCombo.setStyle("-fx-font-size: 11px;");
         priorityBox.getChildren().add(priorityCombo);
         HBox.setHgrow(priorityCombo, Priority.ALWAYS);

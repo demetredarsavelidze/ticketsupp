@@ -96,7 +96,7 @@ public class TicketStore {
     /**
      * Get count of tickets by priority.
      */
-    public long getCountByPriority(Priority priority) {
+    public long getCountByPriority(TicketPriority priority) {
         return tickets.stream()
                 .filter(t -> t.getPriority() == priority)
                 .count();

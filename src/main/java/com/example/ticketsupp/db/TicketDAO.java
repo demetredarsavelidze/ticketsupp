@@ -1,7 +1,7 @@
 package com.example.ticketsupp.db;
 
 import com.example.ticketsupp.model.Ticket;
-import com.example.ticketsupp.model.Priority;
+import com.example.ticketsupp.model.TicketPriority;
 import com.example.ticketsupp.model.TicketStatus;
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -138,7 +138,7 @@ public class TicketDAO {
                 ticket.setRequesterName(rs.getString("requester_name"));
                 ticket.setRequesterEmail(rs.getString("requester_email"));
                 ticket.setAssignee(rs.getString("assignee"));
-                ticket.setPriority(Priority.valueOf(rs.getString("priority")));
+                ticket.setPriority(TicketPriority.valueOf(rs.getString("priority")));
                 ticket.setStatus(TicketStatus.valueOf(rs.getString("status")));
                 ticket.setCreatedAt(LocalDateTime.parse(rs.getString("created_at"), DATE_FORMAT));
                 ticket.setUpdatedAt(LocalDateTime.parse(rs.getString("updated_at"), DATE_FORMAT));
@@ -190,25 +190,25 @@ public class TicketDAO {
 
         Ticket[] demoTickets = new Ticket[] {
             createTicket("TKT-A3F9B2", "Cannot login", "Customer cannot access account after password reset.",
-                    "Ana Maisuradze", "ana@example.com", "Alice Johnson", Priority.HIGH, TicketStatus.OPEN),
+                    "Ana Maisuradze", "ana@example.com", "Alice Johnson", TicketPriority.HIGH, TicketStatus.OPEN),
             createTicket("TKT-B7K2M5", "Payment failed", "Payment was charged but order was not completed.",
-                    "Giorgi Beridze", "giorgi@example.com", "Bob Smith", Priority.CRITICAL, TicketStatus.IN_PROGRESS),
+                    "Giorgi Beridze", "giorgi@example.com", "Bob Smith", TicketPriority.CRITICAL, TicketStatus.IN_PROGRESS),
             createTicket("TKT-C1N8P3", "Password reset email not arriving", "Customer did not receive password reset email.",
-                    "Mariam Kapanadze", "mariam@example.com", "Carol White", Priority.MEDIUM, TicketStatus.RESOLVED),
+                    "Mariam Kapanadze", "mariam@example.com", "Carol White", TicketPriority.MEDIUM, TicketStatus.RESOLVED),
             createTicket("TKT-D5Q4R6", "Dashboard charts not loading", "User reports that dashboard statistics are not visible.",
-                    "Nika Gelashvili", "nika@example.com", "David Lee", Priority.HIGH, TicketStatus.OPEN),
+                    "Nika Gelashvili", "nika@example.com", "David Lee", TicketPriority.HIGH, TicketStatus.OPEN),
             createTicket("TKT-E9T7U2", "Request dark mode support", "Customer requested a dark mode option.",
-                    "Lika Tsereteli", "lika@example.com", "Alice Johnson", Priority.LOW, TicketStatus.CLOSED),
+                    "Lika Tsereteli", "lika@example.com", "Alice Johnson", TicketPriority.LOW, TicketStatus.CLOSED),
             createTicket("TKT-F3V1W8", "CSV export produces corrupted file", "Exported CSV file does not open correctly.",
-                    "Saba K.", "saba@example.com", "Bob Smith", Priority.HIGH, TicketStatus.RESOLVED),
+                    "Saba K.", "saba@example.com", "Bob Smith", TicketPriority.HIGH, TicketStatus.RESOLVED),
             createTicket("TKT-G6X9Y4", "Account locked after failed attempts", "Customer account was locked after multiple login attempts.",
-                    "Tekla M.", "tekla@example.com", "Carol White", Priority.CRITICAL, TicketStatus.IN_PROGRESS),
+                    "Tekla M.", "tekla@example.com", "Carol White", TicketPriority.CRITICAL, TicketStatus.IN_PROGRESS),
             createTicket("TKT-H2Z5A7", "Notification settings not saving", "Notification preferences reset after closing the app.",
-                    "Luka D.", "luka@example.com", "David Lee", Priority.MEDIUM, TicketStatus.OPEN),
+                    "Luka D.", "luka@example.com", "David Lee", TicketPriority.MEDIUM, TicketStatus.OPEN),
             createTicket("TKT-I8B3C1", "Wrong name displayed on profile", "Customer profile shows incorrect display name.",
-                    "Salome B.", "salome@example.com", "Alice Johnson", Priority.LOW, TicketStatus.RESOLVED),
+                    "Salome B.", "salome@example.com", "Alice Johnson", TicketPriority.LOW, TicketStatus.RESOLVED),
             createTicket("TKT-J4D6E9", "App freezes when opening reports", "Application freezes when the reports page is opened.",
-                    "Irakli T.", "irakli@example.com", "Bob Smith", Priority.HIGH, TicketStatus.CLOSED)
+                    "Irakli T.", "irakli@example.com", "Bob Smith", TicketPriority.HIGH, TicketStatus.CLOSED)
         };
 
         for (Ticket ticket : demoTickets) {
@@ -222,7 +222,7 @@ public class TicketDAO {
      */
     private static Ticket createTicket(String code, String title, String description,
                                        String requesterName, String requesterEmail,
-                                       String assignee, Priority priority, TicketStatus status) {
+                                       String assignee, TicketPriority priority, TicketStatus status) {
         Ticket ticket = new Ticket();
         ticket.setTicketCode(code);
         ticket.setTitle(title);

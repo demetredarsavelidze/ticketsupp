@@ -1,6 +1,6 @@
 package com.example.ticketsupp.view;
 
-import com.example.ticketsupp.model.Priority;
+import com.example.ticketsupp.model.TicketPriority;
 import com.example.ticketsupp.model.TicketStatus;
 import com.example.ticketsupp.model.TicketStore;
 import javafx.geometry.Insets;
@@ -15,7 +15,7 @@ public class SidebarView {
     private Runnable onDashboardClick;
     private Runnable onAllTicketsClick;
     private java.util.function.Consumer<TicketStatus> onStatusFilterClick;
-    private java.util.function.Consumer<Priority> onPriorityFilterClick;
+    private java.util.function.Consumer<TicketPriority> onPriorityFilterClick;
     private java.util.function.Consumer<String> onAssigneeFilterClick;
     private Runnable onClearFiltersClick;
 
@@ -83,7 +83,7 @@ public class SidebarView {
         priorityLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #666;");
         root.getChildren().add(priorityLabel);
 
-        for (Priority priority : Priority.values()) {
+        for (TicketPriority priority : TicketPriority.values()) {
             Button priorityBtn = new Button(priority.getDisplayName());
             priorityBtn.setPrefWidth(200);
             priorityBtn.setStyle("-fx-padding: 6px; -fx-font-size: 11px;");
@@ -149,7 +149,7 @@ public class SidebarView {
         this.onStatusFilterClick = handler;
     }
 
-    public void setOnPriorityFilterClick(java.util.function.Consumer<Priority> handler) {
+    public void setOnPriorityFilterClick(java.util.function.Consumer<TicketPriority> handler) {
         this.onPriorityFilterClick = handler;
     }
 

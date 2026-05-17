@@ -1,7 +1,7 @@
 package com.example.ticketsupp.view;
 
-import com.example.ticketsupp.model.Priority;
 import com.example.ticketsupp.model.Ticket;
+import com.example.ticketsupp.model.TicketPriority;
 import com.example.ticketsupp.model.TicketStatus;
 import com.example.ticketsupp.model.TicketStore;
 import javafx.collections.transformation.FilteredList;
@@ -20,7 +20,7 @@ public class TicketListView {
     private FilteredList<Ticket> filteredList;
     private java.util.function.Consumer<Ticket> onTicketSelected;
     private TicketStatus statusFilter;
-    private Priority priorityFilter;
+    private TicketPriority priorityFilter;
     private String assigneeFilter;
 
     public TicketListView() {
@@ -107,7 +107,7 @@ public class TicketListView {
         updateFilters();
     }
 
-    public void filterByPriority(Priority priority) {
+    public void filterByPriority(TicketPriority priority) {
         this.priorityFilter = priority;
         updateFilters();
     }

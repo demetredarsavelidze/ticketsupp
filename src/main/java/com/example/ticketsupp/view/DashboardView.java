@@ -1,8 +1,8 @@
 package com.example.ticketsupp.view;
 
 import com.example.ticketsupp.db.TicketDAO;
-import com.example.ticketsupp.model.Priority;
 import com.example.ticketsupp.model.Ticket;
+import com.example.ticketsupp.model.TicketPriority;
 import com.example.ticketsupp.model.TicketStatus;
 import com.example.ticketsupp.model.TicketStore;
 import javafx.geometry.Insets;
@@ -142,7 +142,7 @@ public class DashboardView {
         int inProgress = (int) store.getCountByStatus(TicketStatus.IN_PROGRESS);
         int resolved = (int) store.getCountByStatus(TicketStatus.RESOLVED);
         int closed = (int) store.getCountByStatus(TicketStatus.CLOSED);
-        int critical = (int) store.getCountByPriority(Priority.CRITICAL);
+        int critical = (int) store.getCountByPriority(TicketPriority.CRITICAL);
 
         totalLabel.setText(String.valueOf(total));
         openLabel.setText(String.valueOf(open));
@@ -169,10 +169,10 @@ public class DashboardView {
 
         XYChart.Series<String, Number> prioritySeries = new XYChart.Series<>();
         prioritySeries.setName("Priority");
-        prioritySeries.getData().add(new XYChart.Data<>("Critical", store.getCountByPriority(Priority.CRITICAL)));
-        prioritySeries.getData().add(new XYChart.Data<>("High", store.getCountByPriority(Priority.HIGH)));
-        prioritySeries.getData().add(new XYChart.Data<>("Medium", store.getCountByPriority(Priority.MEDIUM)));
-        prioritySeries.getData().add(new XYChart.Data<>("Low", store.getCountByPriority(Priority.LOW)));
+        prioritySeries.getData().add(new XYChart.Data<>("Critical", store.getCountByPriority(TicketPriority.CRITICAL)));
+        prioritySeries.getData().add(new XYChart.Data<>("High", store.getCountByPriority(TicketPriority.HIGH)));
+        prioritySeries.getData().add(new XYChart.Data<>("Medium", store.getCountByPriority(TicketPriority.MEDIUM)));
+        prioritySeries.getData().add(new XYChart.Data<>("Low", store.getCountByPriority(TicketPriority.LOW)));
         priorityChart.getData().add(prioritySeries);
     }
 

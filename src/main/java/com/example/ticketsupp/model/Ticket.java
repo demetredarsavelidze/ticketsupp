@@ -15,7 +15,7 @@ public class Ticket {
     private String requesterName;
     private String requesterEmail;
     private String assignee;
-    private Priority priority;
+    private TicketPriority priority;
     private TicketStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -24,7 +24,7 @@ public class Ticket {
     public Ticket() {
         this.ticketCode = generateTicketCode();
         this.status = TicketStatus.OPEN;
-        this.priority = Priority.MEDIUM;
+        this.priority = TicketPriority.MEDIUM;
         this.assignee = "Unassigned";
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
@@ -101,11 +101,11 @@ public class Ticket {
         this.assignee = assignee;
     }
 
-    public Priority getPriority() {
+    public TicketPriority getPriority() {
         return priority;
     }
 
-    public void setPriority(Priority priority) {
+    public void setPriority(TicketPriority priority) {
         this.priority = priority;
     }
 

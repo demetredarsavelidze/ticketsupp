@@ -66,7 +66,7 @@ public class TicketCell extends ListCell<Ticket> {
         setGraphic(cellContent);
     }
 
-    private String getPriorityColor(com.example.ticketsupp.model.Priority priority) {
+    private String getPriorityColor(com.example.ticketsupp.model.TicketPriority priority) {
         return switch (priority) {
             case CRITICAL -> "#d32f2f";
             case HIGH -> "#f57c00";
